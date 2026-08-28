@@ -19,11 +19,12 @@ public class FrontDeskUI {
 
         while (true) {
 
-            System.out.println("\n=== Front Desk ===");
             System.out.println("1. Search Guest");
             System.out.println("2. Search Bill");
-            System.out.println("3. Exit");
-            System.out.print("\n-> Enter choice: ");
+            System.out.println("3. Display All Guests");
+            System.out.println("4. Generate Billing Report");
+            System.out.println("5. Generate Occupancy Report");
+            System.out.println("6. Exit");
 
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -37,6 +38,18 @@ public class FrontDeskUI {
                 searchBill();
 
             } else if (choice == 3) {
+
+                frontDesk.displayAllGuests();
+
+            } else if (choice == 4) {
+
+                generateBillingReport();
+                
+            } else if (choice == 5) {
+
+                generateOccupancyReport();
+
+            } else if (choice == 6) {
 
                 System.out.println("-> Goodbye.");
                 break;
@@ -80,4 +93,89 @@ public class FrontDeskUI {
 
         frontDesk.searchBill(confirmationNumber);
     }
+
+    private void generateBillingReport() {
+
+        System.out.println("\n=== Guest Billing Report ===");
+        System.out.println("1. Checked In");
+        System.out.println("2. Checked Out");
+        System.out.println("3. All Guests");
+        System.out.print("-> Select status: ");
+
+        int statusChoice = scanner.nextInt();
+        scanner.nextLine();
+
+        String status;
+
+        if (statusChoice == 1) {
+
+            status = "Checked In";
+
+        } else if (statusChoice == 2) {
+
+            status = "Checked Out";
+
+        } else if (statusChoice == 3) {
+
+            status = "All";
+
+        } else {
+
+            System.out.println("Invalid choice.");
+            return;
+        }
+
+        System.out.print("-> Enter minimum bill amount: RM ");
+
+        double minimumBill = scanner.nextDouble();
+        scanner.nextLine();
+
+        frontDesk.generateBillingReport(status, minimumBill); //user input gets passed to control class
+
+    }
+
+    private void generateOccupancyReport() {
+
+    System.out.println("\n=== Guest Occupancy Report ===");
+    System.out.println("1. Checked In");
+    System.out.println("2. Checked Out");
+    System.out.println("3. All Guests");
+    System.out.print("-> Select status: ");
+
+    int statusChoice = scanner.nextInt();
+    scanner.nextLine();
+
+    String status;
+
+    if (statusChoice == 1) {
+
+        status = "Checked In";
+
+    } else if (statusChoice == 2) {
+
+        status = "Checked Out";
+
+    } else if (statusChoice == 3) {
+
+        status = "All";
+
+    } else {
+
+        System.out.println("Invalid choice.");
+        return;
+    }
+
+    System.out.print("-> Enter minimum room number: ");
+    int minimumRoom = scanner.nextInt();
+
+    System.out.print("-> Enter maximum room number: ");
+    int maximumRoom = scanner.nextInt();
+    scanner.nextLine();
+
+    frontDesk.generateOccupancyReport(status, minimumRoom, maximumRoom); //send input values to control class
+
+    }
+
+
+
 }
