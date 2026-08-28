@@ -1,44 +1,42 @@
 //a container class
 package adt;
 
-import entity.Guest;
+public class TreeNode<T>{
 
-public class TreeNode{
-
-    private Guest data;
-    private TreeNode leftChild;
-    private TreeNode rightChild;
+    private T data;
+    private TreeNode<T> leftChild;
+    private TreeNode<T> rightChild;
 
     //constructor
-    public TreeNode(Guest data){
+    public TreeNode(T data){
         this.data = data;
         this.leftChild = null;
         this.rightChild = null;
     }
 
     //get/set for bst
-    public Guest getData(){
+    public T getData(){
         return data;
     }
 
-    public void setData(Guest data){
+    public void setData(T data){
         this.data = data;
 
     }
 
-    public TreeNode getLeftChild() {
+    public TreeNode<T> getLeftChild() {
         return leftChild;
     }
 
-    public void setLeftChild(TreeNode leftChild) {
+    public void setLeftChild(TreeNode<T> leftChild) {
         this.leftChild = leftChild;
     }
 
-    public TreeNode getRightChild() {
+    public TreeNode<T> getRightChild() {
         return rightChild;
     }
 
-    public void setRightChild(TreeNode rightChild) {
+    public void setRightChild(TreeNode<T> rightChild) {
         this.rightChild = rightChild;
     }
 
