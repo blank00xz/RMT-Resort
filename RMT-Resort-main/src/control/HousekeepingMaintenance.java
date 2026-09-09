@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 /**
  * Control class for the Housekeeping and Task Log module.
  *
- * @author Chang Kai Zhe
+ * @author Wong Pen Yu
  */
 public class HousekeepingMaintenance {
 
